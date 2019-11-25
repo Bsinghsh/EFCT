@@ -1,0 +1,28 @@
+{
+  "name": "efct",
+  "version": "1.0.0",
+  "description": "EFCT server files",
+  "main": "index.js",
+  "scripts": {
+    "client": "cd client && yarn start",
+    "server": "nodemon server.js",
+    "dev": "concurrently --kill-others-on-fail \"yarn server\" \"yarn client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Bsinghsh/EFCT.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Bsinghsh/EFCT/issues"
+  },
+  "homepage": "https://github.com/Bsinghsh/EFCT#readme",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
+    "express": "^4.17.1",
+    "mongoose": "^5.7.12",
+    "morgan": "^1.9.1"
+  }
+}
