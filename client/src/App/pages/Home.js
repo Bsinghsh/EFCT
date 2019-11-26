@@ -1,34 +1,60 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import ReactDataSheet from 'react-datasheet';
+import ReactTable from "react-table";
+import '../CSS/Home.css'
 const grid = [
    [{value:  5, expr: '1 + 4'}, {value:  6, expr: '6'}, {value: new Date('2008-04-10')}],
    [{value:  5, expr: '1 + 4'}, {value:  5, expr: '1 + 4'}, {value: new Date('2004-05-28')}]
 ]
+
 const onCellsChanged = (changes) => changes.forEach(({cell, row, col, value}) => console.log("New expression :" + value))
 const divStyle ={
-  margin: '40px',
+    display: 'block',
+    marginLeft: 'auto',
+    marginRight: 'auto',
+    width: '250px',
+    textAlign: 'center',
+    positoin: 'absolute',
+    top: '50%',
+    left: '50%',
+};
 
-  position: 'absolute',
-  top: '0%',
-  right: '0%',
-  border: '40px'
+const titleStyle={
+  textAlign: 'center',
+  fontSize: '50px'
+};
+const textStyle={
+  fontSize: '20px'
 };
 class Home extends Component {
 
   render () {
+
     return (
       <React.Fragment>
-      <p>
-        I have no idea if this will work, but I'm tired and frustrated and want to be done.
-      </p>
+      <div className="Title" style={titleStyle}>
+        <h1>EFCT</h1>
+        <p style={textStyle}> The Eclipse Fate Character Tool </p>
+            <br/>
+        <Link to="/List" style={textStyle}> Check out a demonstration table</Link>
+        <p style={textStyle}> Please enter your username and password to log-in</p>
+      </div>
+            <br/>
+
 
       <div className="Table" style={divStyle}>
-        <ReactDataSheet
-          data={grid}
-            valueRenderer={(cell, i, j) => j == 2 ? cell.value.toDateString() : cell.value}
-            dataRenderer={(cell, i, j) => j == 2 ? cell.value.toISOString() : cell.expr}
-            onCellsChanged={onCellsChanged}/>
+        <form>
+            Name: 
+            <br/>
+              <input type ="text" name="name"/>
+          <br/>
+            Password: 
+            <input type="text" name="password"/>
+          <br/>
+          <input type="submit" value="Submit"/>
+
+        </form>
       </div>
       </React.Fragment>
     )

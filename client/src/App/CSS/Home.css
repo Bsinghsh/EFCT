@@ -1,3 +1,11 @@
-
+html *{
+	font-size: 1em;
+	font-family: Helvetica;
+}
 .Table {
+	font-family: Georgia;
+
+}
+body {
+  background-color: #006d5b ;
 }
